@@ -1,72 +1,160 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
-require_relative( './models/game' )
+require_relative( 'models/game' )
 
 
+
+get '/home'do
+ erb(:home)
+end
+
+
+get '/about_us' do
+ erb(:about_us)
+end
 
 
 
 get '/play' do 
-  return "Welcome to the game. Player1, choose between:
-  rock, 
-  paper, 
-  scissors."
+  # @welcome = "Player1, choose between: Rock, Paper, Scissors!"
+  erb(:play)
 end
 
 
-get '/play/:hand1' do 
-  return "Player 2, your turn to play."
+
+
+
+
+
+get '/play/rock' do 
+  # @welcome = "Player 2, your turn to play: Rock, Paper or Scissors??"
+  erb(:player2rock)
 end
+
+
+get '/play/paper' do 
+  # @welcome = "Player 2, your turn to play: Rock, Paper or Scissors??"
+  erb(:player2paper)
+end
+
+
+
+get '/play/scissors' do 
+  # @welcome = "Player 2, your turn to play: Rock, Paper or Scissors??"
+  erb(:player2scissors)
+end
+
+
+
+
+
+
+
+
+
+get '/play/rock' do 
+  # @welcome = "Player 2, your turn to play: Rock, Paper or Scissors??"
+  erb(:player2paper)
+end
+
+
+get '/play/paper' do 
+  # @welcome = "Player 2, your turn to play: Rock, Paper or Scissors??"
+  erb(:player2paper)
+end
+
+
+
+get '/play/scissors' do 
+  # @welcome = "Player 2, your turn to play: Rock, Paper or Scissors??"
+  erb(:player2paper)
+end
+
+
+
+
+
+
+
+
+
+get '/play/rock' do 
+  # @welcome = "Player 2, your turn to play: Rock, Paper or Scissors??"
+  erb(:player2scissors)
+end
+
+
+get '/play/paper' do 
+  # @welcome = "Player 2, your turn to play: Rock, Paper or Scissors??"
+  erb(:player2scissors)
+end
+
+
+
+get '/play/scissors' do 
+  # @welcome = "Player 2, your turn to play: Rock, Paper or Scissors??"
+  erb(:player2scissors)
+end
+
+
+
+
+
+
+
+
+
 
 
 
 get '/play/rock/paper' do 
-  @result = "Player 2, your win."
+  @result = "Player 2, you win with Paper!"
       erb(:result)
 end
 
 
 
 get '/play/rock/scissors' do 
-  @result = "Player 1, your win."
+  @result = "Player 1, you win with Rock!"
       erb(:result)
 end
 
 
 
 get '/play/paper/rock' do 
-  @result = "Player 1, your win."
+  @result = "Player 1, you win with Paper!"
       erb(:result)
 end
 
 
 get '/play/paper/scissors' do 
-  @result = "Player 2, your win."
+  @result = "Player 2, you win with Scissors!"
         erb(:result)
 end
 
 
 
 get '/play/scissors/paper' do 
-  @result = "Player 1, your win."
+  @result = "Player 1, you win with Scissors!"
         erb(:result)
 end
 
 
 
 get '/play/scissors/rock' do 
-  @result = "Player 2, your win."
+  @result = "Player 2, you win with Rock!"
         erb(:result)
 end
 
 
 
 get '/play/:hand1/:hand2' do
-  
     if params['hand1'] == params['hand2']
-      return "It's a draw!"
-    
-    end
+      @result = "It's a draw!"
+      erb(:result)
+end
   
-  end   
+  
+
+end   
